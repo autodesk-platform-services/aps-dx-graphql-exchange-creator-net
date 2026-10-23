@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Revit add-in (app bundle) for Design Automation for Revit.
+    Build with: dotnet build -c Release -p:RevitVersion=2023 (2023 to 2027, default 2026)
+    The build produces bin/Release/<RevitVersion>/ExchangeViewCreator.zip, ready to be uploaded as an app bundle.
+    Build one bundle per Revit version your designs are saved with: the web app processes each design with the
+    matching engine, so that the design isn't upgraded (an upgraded design behaves differently in Data Exchange).
+  -->
+  <PropertyGroup>
+    <RevitVersion Condition="'$(RevitVersion)' == ''">2026</RevitVersion>
+    <!-- Revit 2023/2024 run on .NET Framework 4.8, Revit 2025/2026 on .NET 8, Revit 2027 on .NET 10 -->
+    <TargetFramework Condition="'$(RevitVersion)' &lt;= '2024'">net48</TargetFramework>
+    <TargetFramework Condition="'$(RevitVersion)' &gt;= '2027'">net10.0-windows</TargetFramework>
+    <TargetFramework Condition="'$(TargetFramework)' == ''">net8.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>bin\$(Configuration)\$(RevitVersion)\</OutputPath>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <PlatformTarget>x64</PlatformTarget>
+    <AssemblyName>ExchangeViewCreator</AssemblyName>
+    <RootNamespace>ExchangeViewCreator</RootNamespace>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <BundleName>ExchangeViewCreator.bundle</BundleName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Reference-only Revit API assemblies (not copied to the output) -->
+    <PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*" />
+    <!-- DesignAutomationBridge.dll is part of the bundle -->
+    <PackageReference Include="Autodesk.Forge.DesignAutomation.Revit" Version="$(RevitVersion).*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PackageContents.xml" CopyToOutputDirectory="Never" />
+    <None Update="ExchangeViewCreator.addin" CopyToOutputDirectory="Never" />
+  </ItemGroup>
+
+  <!--
+    Bundle layout expected by Design Automation:
+      ExchangeViewCreator.zip
+      └── ExchangeViewCreator.bundle/
+          ├── PackageContents.xml
+          └── Contents/
+              ├── ExchangeViewCreator.addin
+              ├── ExchangeViewCreator.dll
+              └── DesignAutomationBridge.dll
+  -->
+  <Target Name="CreateAppBundle" AfterTargets="Build">
+    <PropertyGroup>
+      <BundleStagingDir>$(OutDir)bundle/</BundleStagingDir>
+      <BundleContentsDir>$(BundleStagingDir)$(BundleName)/Contents/</BundleContentsDir>
+    </PropertyGroup>
+    <ItemGroup>
+      <BundleAssemblies Include="$(OutDir)*.dll" />
+    </ItemGroup>
+    <RemoveDir Directories="$(BundleStagingDir)" />
+    <Copy SourceFiles="PackageContents.xml" DestinationFolder="$(BundleStagingDir)$(BundleName)/" />
+    <Copy SourceFiles="ExchangeViewCreator.addin;@(BundleAssemblies)" DestinationFolder="$(BundleContentsDir)" />
+    <ZipDirectory SourceDirectory="$(BundleStagingDir)" DestinationFile="$(OutDir)ExchangeViewCreator.zip" Overwrite="true" />
+    <Message Importance="high" Text="App bundle created: $(OutDir)ExchangeViewCreator.zip (Revit $(RevitVersion))" />
+  </Target>
+</Project>

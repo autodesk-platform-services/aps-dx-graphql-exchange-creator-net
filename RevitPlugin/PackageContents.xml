@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ApplicationPackage SchemaVersion="1.0" Author="Autodesk Platform Services"
+                    Name="ExchangeViewCreator" Description="Creates a Revit view isolating a given selection set, for Data Exchange creation"
+                    Version="1.0.0" ProductCode="{3F0C2B53-6C1B-4E0B-9E7F-6A2C1D0B7E41}" AppVersion="1.0.0"
+                    AutodeskProduct="Revit" ProductType="Application">
+  <CompanyDetails Name="Autodesk" Url="https://aps.autodesk.com" Email="" />
+  <Components Description="Revit add-in for Design Automation">
+    <RuntimeRequirements SeriesMin="R2023" SeriesMax="R2027" Platform="Revit" OS="Win64" />
+    <ComponentEntry AppName="ExchangeViewCreator" Version="1.0.0" ModuleName="./Contents/ExchangeViewCreator.addin"
+                    AppDescription="Creates a Revit view isolating a given selection set" LoadOnCommandInvocation="False" LoadOnRevitStartup="True" />
+  </Components>
+</ApplicationPackage>

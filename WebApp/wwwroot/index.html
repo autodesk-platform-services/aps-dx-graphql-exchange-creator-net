@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="https://cdn.autodesk.io/favicon.ico">
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/inspire-tree-dom@4.0.6/dist/inspire-tree-light.min.css">
+    <link rel="stylesheet" href="/main.css">
+    <title>Autodesk Platform Services: Exchange Creator</title>
+</head>
+
+<body>
+    <header id="header" class="hud-panel cut">
+        <button id="sidebar-toggle" aria-controls="sidebar"></button>
+        <img class="logo" src="https://cdn.autodesk.io/logo/black/stacked.png" alt="Autodesk Platform Services">
+        <div class="title">
+            <div class="tag">DATA EXCHANGE &bull; SELECTION TO EXCHANGE</div>
+            <h1>Exchange Creator Sample</h1>
+            <div class="sub">Signed in as: <b id="user">&ndash;</b></div>
+        </div>
+        <div class="actions">
+            <button id="login" style="visibility: hidden;">Login</button>
+        </div>
+    </header>
+    <section id="sidebar" class="hud-panel">
+        <div class="sidebar-title">
+            <h2>Hubs</h2>
+            <button id="tree-refresh" title="Reload the tree, e.g., to see newly created exchanges" hidden>&#x21bb; Refresh</button>
+        </div>
+        <div id="tree"></div>
+    </section>
+    <div id="splitter" role="separator" aria-orientation="vertical" title="Drag to resize, double-click to hide or show the sidebar"></div>
+    <section id="preview-frame" class="hud-panel">
+        <div id="design-info" hidden></div>
+        <div id="preview"></div>
+        <div id="viewer-placeholder">
+            <div class="placeholder-title">No design open</div>
+            <div class="placeholder-text">Loading...</div>
+        </div>
+    </section>
+    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+    <script src="https://unpkg.com/inspire-tree@4.3.1/dist/inspire-tree.js"></script>
+    <script src="https://unpkg.com/inspire-tree-dom@4.0.6/dist/inspire-tree-dom.min.js"></script>
+    <script src="/main.js" type="module"></script>
+</body>
+
+</html>

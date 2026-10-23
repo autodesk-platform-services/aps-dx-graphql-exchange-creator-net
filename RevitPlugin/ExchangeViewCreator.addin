@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<RevitAddIns>
+  <AddIn Type="DBApplication">
+    <Name>ExchangeViewCreator</Name>
+    <FullClassName>ExchangeViewCreator.Commands</FullClassName>
+    <Text>ExchangeViewCreator</Text>
+    <Description>Creates a Revit view isolating a given selection set</Description>
+    <VisibilityMode>AlwaysVisible</VisibilityMode>
+    <Assembly>.\ExchangeViewCreator.dll</Assembly>
+    <AddInId>8B6E3D5A-2F4C-4B8E-A1D7-5C9E0F3B2A61</AddInId>
+    <VendorId>ADSK</VendorId>
+    <VendorDescription>Autodesk Platform Services</VendorDescription>
+  </AddIn>
+</RevitAddIns>
