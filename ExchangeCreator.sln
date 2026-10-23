@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{7E50A06F-A38B-7BE7-1137-409223B8AEF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeCreator", "WebApp\ExchangeCreator.csproj", "{59192347-C087-4BF7-B83D-1C6D1363C014}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RevitPlugin", "RevitPlugin", "{6899019D-F2B2-BB44-5CB4-AB6E15B4BCB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeViewCreator", "RevitPlugin\ExchangeViewCreator.csproj", "{8455F85D-3170-4D87-BC26-5C58E309E1DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|x64.Build.0 = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Debug|x86.Build.0 = Debug|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|x64.ActiveCfg = Release|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|x64.Build.0 = Release|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|x86.ActiveCfg = Release|Any CPU
+		{59192347-C087-4BF7-B83D-1C6D1363C014}.Release|x86.Build.0 = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|x64.Build.0 = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Debug|x86.Build.0 = Debug|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|x64.ActiveCfg = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|x64.Build.0 = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|x86.ActiveCfg = Release|Any CPU
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{59192347-C087-4BF7-B83D-1C6D1363C014} = {7E50A06F-A38B-7BE7-1137-409223B8AEF0}
+		{8455F85D-3170-4D87-BC26-5C58E309E1DE} = {6899019D-F2B2-BB44-5CB4-AB6E15B4BCB5}
+	EndGlobalSection
+EndGlobal
