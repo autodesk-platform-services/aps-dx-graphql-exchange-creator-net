@@ -95,6 +95,13 @@ public class AuthController : ControllerBase
         return Redirect(redirectUri);
     }
 
+    // The client ID to provision in the ACC account (shown by the help dialog). Public, so it works before signing in
+    [HttpGet("client")]
+    public ActionResult GetClient()
+    {
+        return Ok(new { clientId = _aps.ClientId });
+    }
+
     [HttpGet("logout")]
     public ActionResult Logout()
     {

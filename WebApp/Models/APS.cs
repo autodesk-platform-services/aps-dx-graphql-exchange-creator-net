@@ -27,6 +27,8 @@ public partial class APS
     private readonly string _callbackUri;
     private readonly AutomationSettings _automationSettings;
     public int MinRevitVersion => _automationSettings.MinRevitVersion;
+    // Not a secret: it is also in every sign-in URL. Shown by the help dialog, to provision the app in ACC
+    public string ClientId => _clientId;
     // Reading and writing files in ACC, and creating exchanges
     private readonly List<Scopes> InternalTokenScopes = [Scopes.DataRead, Scopes.DataWrite, Scopes.DataCreate, Scopes.ViewablesRead];
     private readonly List<Scopes> PublicTokenScopes = [Scopes.ViewablesRead];

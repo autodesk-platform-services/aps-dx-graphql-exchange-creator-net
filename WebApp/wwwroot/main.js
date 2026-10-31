@@ -2,8 +2,10 @@ import { initViewer, loadModel, toUrn, getRevitVersion } from './viewer.js';
 import { initTree } from './sidebar.js';
 import { initSidebarLayout } from './layout.js';
 import { keepSessionAlive } from './session.js';
+import { initHelp } from './help.js';
 
 initSidebarLayout();
+initHelp();
 
 const login = document.getElementById('login');
 try {

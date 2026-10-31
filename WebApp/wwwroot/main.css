@@ -113,7 +113,7 @@ h2 { font-size: 1rem; margin-bottom: 10px; }
 
 /* Buttons and links, scoped to the app's own UI so the Viewer's controls keep their look */
 
-#header button, #sidebar button, #exchange-creator-panel button {
+#header button, #sidebar button, #exchange-creator-panel button, #help-dialog button {
     cursor: pointer;
     font: inherit;
     font-size: 12px;
@@ -126,7 +126,8 @@ h2 { font-size: 1rem; margin-bottom: 10px; }
     clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
 }
 
-#header button:hover:not(:disabled), #sidebar button:hover:not(:disabled), #exchange-creator-panel button:hover:not(:disabled) {
+#header button:hover:not(:disabled), #sidebar button:hover:not(:disabled), #exchange-creator-panel button:hover:not(:disabled),
+#help-dialog button:hover:not(:disabled) {
     background: rgba(var(--accent-rgb),.12);
     color: var(--accent);
 }
@@ -196,6 +197,20 @@ h2 { font-size: 1rem; margin-bottom: 10px; }
     flex: none;
     padding: 0 !important;
     font-size: 16px !important;
+}
+
+#header .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#help {
+    width: 34px;
+    height: 34px;
+    padding: 0 !important;
+    font-size: 16px !important;
+    font-weight: 800;
 }
 
 #sidebar-toggle::before {
@@ -679,6 +694,86 @@ body.sidebar-resizing {
 .ec-links a {
     display: block;
     margin-top: 0.4em;
+}
+
+/* Help dialog (help.js): a HUD panel in the middle of the page, as wide as the client ID needs */
+
+#help-dialog {
+    position: fixed;
+    width: max-content;
+    max-width: calc(100vw - 4 * var(--gap));
+    padding: 32px 36px 28px;
+    color: var(--text);
+    font-size: 14px;
+    text-align: center;
+}
+
+#help-dialog::backdrop {
+    background: rgba(15,43,23,.35);
+}
+
+#help-dialog h2 {
+    font-size: 1.3rem;
+    margin-bottom: 16px;
+}
+
+#help-dialog ul {
+    list-style: none;
+    margin: 0 0 20px;
+    padding: 0;
+    line-height: 2.4;
+}
+
+#help-dialog a {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+#help-dialog .help-client {
+    display: inline-flex;
+    margin: 0 4px;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+/* Sized by help.js to the length of the client ID, so it is never cut */
+#help-client-id {
+    box-sizing: content-box;
+    padding: 5px 8px;
+    font-family: Menlo, Consolas, monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--bright);
+    background: #fff;
+    border: 1px solid var(--edge);
+    border-right: 0;
+    outline: none;
+}
+
+#help-dialog .help-client button {
+    clip-path: none;
+}
+
+#help-dialog .help-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 2px 9px;
+    font-size: 18px;
+}
+
+#help-dialog .help-ok {
+    min-width: 96px;
+    padding: 8px 20px;
+    font-weight: 700;
+    color: #fff;
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+#help-dialog .help-ok:hover {
+    color: #fff;
+    background: #125c31;
 }
 
 /* Shown by session.js when the session cannot be renewed */

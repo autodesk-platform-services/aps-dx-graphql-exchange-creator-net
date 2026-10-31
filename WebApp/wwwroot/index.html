@@ -21,9 +21,26 @@
             <div class="sub">Signed in as: <b id="user">&ndash;</b></div>
         </div>
         <div class="actions">
+            <button id="help" title="Help" aria-haspopup="dialog" aria-controls="help-dialog">?</button>
             <button id="login" style="visibility: hidden;">Login</button>
         </div>
     </header>
+    <dialog id="help-dialog" class="hud-panel" aria-labelledby="help-title">
+        <button class="help-close" title="Close" aria-label="Close">&times;</button>
+        <h2 id="help-title">Helpers</h2>
+        <ul>
+            <li>
+                <a href="https://get-started.aps.autodesk.com/#provision-access-in-other-products" target="_blank" rel="noopener">Provision</a>
+                the client ID
+                <span class="help-client"><input id="help-client-id" type="text" readonly value="..." aria-label="Client ID"><button id="help-copy" title="Copy the client ID">Copy</button></span>
+                in your hub.
+            </li>
+            <li>Find the complete source code <a href="https://github.com/autodesk-platform-services/aps-dx-graphql-exchange-creator-net" target="_blank" rel="noopener">on GitHub</a>.</li>
+        </ul>
+        <form method="dialog">
+            <button class="help-ok">OK</button>
+        </form>
+    </dialog>
     <section id="sidebar" class="hud-panel">
         <div class="sidebar-title">
             <h2>Hubs</h2>
