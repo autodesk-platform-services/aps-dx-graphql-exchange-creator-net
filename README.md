@@ -1,3 +1,6 @@
+<!-- archived-notice -->
+> **This repository is archived.** Archived repositories are not maintained or supported.
+
 # APS Exchange Creator (.NET)
 
 [![ver](https://img.shields.io/badge/language-c%23-purple.svg)](https://dotnet.microsoft.com/)
